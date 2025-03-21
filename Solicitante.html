@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Solicitante</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos/estiloPrincipal.css">
+</head>
+<body>
+    <div id="overlay"></div>
+	<nav id="mainNav">
+        <a href="Solicitante.html">Solicitante</a>
+        <a href="Existencia.html">Existencia</a>
+        <a href="Prestamos.html">Préstamos</a>
+        <a href="Laboratorista.html">Laboratorista</a>
+        <a href="Administrador.html">Modificar cuenta admin</a>
+        <a href="Sala.html">Préstamo de sala</a>
+        <!--<a href="modificar/ModificarLaboratorista.html">Modificar Cuenta</a>-->
+        <a href="php/logout.php">Salir</a>
+        <style>
+            .hidden {
+                display: none;
+            }
+        </style>
+    </nav>
+    <!--<h3 id="welcomeMessage">Cargando...</h3>-->
+    
+    <div>
+        <!--<div class="alert" id="alerta">
+            <strong >¡Advertencia!</strong>
+        </div>-->
+        <div>
+            <h1>Solicitante</h1>
+        </div>
+        <div>
+            <input type="button"  name="btnAgregar" value="Registrar" onclick="Mostrar('agregar')">
+            <input type="button"  name="btnModificar" value="Modificar" onclick="Mostrar('modificar')">
+            <input type="button"  name="btnEliminar" value="Eliminar" onclick="Eliminar()">
+        </div>
+        <br>
+        <div>
+            <input type="text" name="txtBuscador" id="txtBuscador" placeholder="Buscar..." oninput="detectarTeclado(event)">
+        </div>
+
+
+        <br>
+        <div class="tabla-container">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" name="seleccion" id="seleccion"></th>
+                        <th>idUsuario</th>
+                        <th>idTipoUsuario</th>
+                        <th>Nombre completo</th>
+                        <th>Apellido paterno</th>
+                        <th>Apellido materno</th>
+                        <th>Correo electrónico</th>
+                    </tr>
+                </thead>
+                <tbody id="datosSolicitante" >
+           		</tbody>
+            </table>
+        </div> 
+
+        <!------------------------------------------------ Formulario Agregar ------------------------------------------------>
+        <div id="formularioAgregar" class="formulario">
+            <!-- Aquí incluirías tu formulario HTML -->
+            <form id="FormAgregar" method="post">
+                <div class="titulo">
+                    <h2>Registrar</h2>
+                </div>
+                <label>Matrícula o Clave:</label><br>
+                <input type="text" name="idUsuario" id="idUsuarioA" maxlength="12" oninput="filtrarClaveAgregar(event)" required><br>
+
+                <label>Tipo:</label><br>
+                <select  name="idTipoUsuario" id="idTipoUsuarioA"></select><br>
+
+                <label>Nombre:</label><br>
+                <input type="text" name="nombre" id="nombreA" maxlength="48" oninput="soloLetras(event)" required><br>
+
+                <label>Apellido Paterno:</label><br>
+                <input type="text" name="apellido1" id="apellido1A" maxlength="48" oninput="soloLetras(event)" required><br>
+
+                <label>Apellido Materno:</label><br>
+                <input type="text" name="apellido2" id="apellido2A" maxlength="48" oninput="soloLetras(event)" required><br>
+
+                <label>Correo Electrónico:</label><br>
+                <input type="email" name="correo" id="correoA" required><br>
+
+
+                <input type="submit" value="Registrar">
+                <input type="button" name="btnCancelar" value="Limpiar" onclick="limpiar('agregar')"> 
+        
+            </form>
+            <button onclick="Cerrar('agregar')">
+                <img src="assets/x.svg" alt="Cerrar" class="icono-cerrar">
+            </button>
+        </div>
+
+        <!------------------------------------------------ Formulario Modificar ------------------------------------------------>
+        <div id="formularioModificar" class="formulario">
+            <!-- Aquí incluirías tu formulario HTML -->
+            <form id="FormModificar" method="post">
+            <div class="titulo">
+                
+               <h2>Modificar</h2>       
+            </div>
+                <label >Identificador (Matrícula o ID):</label><br>
+                <input type="text" name="idUsuario" id="idUsuarioM" placeholder="Buscar..." maxlength="12" oninput="filtrarClaveModificar(event)" required><br>
+
+                <label>Tipo:</label><br>
+                <select  name="idTipoUsuario" id="idTipoUsuarioM"></select><br>
+
+                <label >Nombre:</label><br>
+                <input type="text" name="nombre" id="nombreM" maxlength="48" oninput="soloLetras(event)" required><br>
+
+                <label >Apellido Paterno:</label><br>
+                <input type="text" name="apellido1" id="apellido1M" oninput="soloLetras(event)" required><br>
+
+                <label >Apellido Materno:</label><br>
+                <input type="text" name="apellido2" id="apellido2M" maxlength="48" oninput="soloLetras(event)" required><br>
+
+                <label >Correo Electrónico:</label><br>
+                <input type="email" name="correo" id="correoM" maxlength="48" required><br>
+            
+                <input type="submit" value="Aceptar">
+                <input type="button" name="btnCancelar" value="Limpiar" onclick="limpiar('modificar')">
+            </form>
+            <button onclick="Cerrar('modificar')">
+                <img src="assets/x.svg" alt="Cerrar" class="icono-cerrar">
+            </button>
+        </div>
+
+        <script src="script/SolicitanteIndex.js"></script>
+    </div>
+
+</body>
+</html>

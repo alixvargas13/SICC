@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Prestamos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos/estiloPrincipal.css">
+</head>
+<body>
+    <div id="overlay"></div>
+	<nav id="mainNav">
+        <a href="Solicitante.html">Solicitante</a>
+        <a href="Existencia.html">Existencia</a>
+        <a href="Prestamos.html">Préstamos</a>
+        <a href="Laboratorista.html">Laboratorista</a>
+        <a href="Administrador.html">Modificar cuenta admin</a>
+        <a href="Sala.html">Préstamo de sala</a>
+        <!--<a href="modificar/ModificarLaboratorista.html">Modificar Cuenta</a>-->
+        <a href="php/logout.php">Salir</a>
+        <style>
+            .hidden {
+                display: none;
+            }
+        </style>
+    </nav>
+    <!--<h3 id="welcomeMessage">Cargando...</h3>-->
+    
+    <div>
+        <h1>Préstamos de inventario</h1>
+        <input type="button" name="btnAgregar" value="Registrar" onclick="Mostrar('agregar')">
+        <input type="button" name="btnReporte" value="Generar Reporte" onclick="generarReporte()">
+        <input type="button" name="btnDevolver" value="Devolver Equipo" onclick="devolverEquipo()">
+        <!--onclick="window.location.href='php/generate_pdf.php'"-->
+        <!--<input type="button" name="btnEliminar" value="Devolver" onclick="Eliminar()">-->
+        <br><br>
+        <div>
+            <input type="text" name="txtBuscador" id="txtBuscador" placeholder="Buscar..." oninput="detectarTeclado(event)">
+        </div>
+        <br>
+        <div class="tabla-container">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" name="seleccion" id="seleccion"></th>
+                        <th>idPrestamo</th>
+                        <th>Clave del Solicitante</th>
+                        <th>No. Existencia</th>
+                        <th>Fecha y Hora</th>
+                        <th>Cantidad</th>
+                    </tr>
+                </thead>
+                <tbody id="datosPrestamos"></tbody>
+            </table>
+        </div>
+
+        <!------------------------------------------------ Formulario Agregar ------------------------------------------------>
+        <div id="formularioAgregar" class="formulario">
+            <form id="FormAgregar" method="post">
+                <div class="titulo">
+                    <h2>Registrar Préstamos</h2>
+                </div>
+                <label>Clave Solicitante:</label><br>
+                <input type="text" name="idUsuario" id="idUsuarioA" maxlength="45" required><br>
+                <div class="tabla-container">
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>Matrícula</th>
+                                <th>Nombre</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaSolicitantes"></tbody>
+                    </table>
+                </div>
+
+                <label>No. Existencia:</label><br>
+                <input type="text" name="idExistencia" id="idExistenciaA" maxlength="45" required><br>
+                <div class="tabla-container">
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaExistencias"></tbody>
+                    </table>
+                </div>
+
+                <label>Fecha y Hora:</label><br>
+                <input type="datetime-local" name="fechaHora" id="fechaHoraA" required><br>
+
+                <label>Cantidad:</label><br>
+                <input type="number" name="cantidad" id="cantidadA" required><br>
+
+                <input type="submit" value="Aceptar">
+                <input type="button" name="btnCancelar" value="Limpiar" onclick="limpiar('agregar')">
+            </form>
+            <button onclick="Cerrar('agregar')">
+                <img src="assets/x.svg" alt="Cerrar" class="icono-cerrar">
+            </button>
+        </div>
+
+        <script src="script/Prestamos.js"></script>
+    </div>
+</body>
+</html>

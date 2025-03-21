@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Laboratorista</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos/estiloPrincipal.css">
+</head>
+<body>
+    <div id="overlay"></div>
+    <nav id="mainNav">
+        <a href="Solicitante.html">Solicitante</a>
+        <a href="Existencia.html">Existencia</a>
+        <a href="Prestamos.html">Préstamos</a>
+        <a href="Laboratorista.html">Laboratorista</a>
+        <a href="Administrador.html">Modificar cuenta admin</a>
+        <a href="Sala.html">Préstamo de sala</a>
+        <a href="php/logout.php">Salir</a>
+    </nav>
+    
+    <div>
+        <div>
+            <h1>Préstamo de sala</h1>
+        </div>
+        <div>
+            <input type="button" id="btnRegistrar" name="btnRegistrar" value="Registrar Solicitud de Sala" onclick="Mostrar('agregar')">
+        </div>
+        <br>
+
+        <div class="tabla-container">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" name="seleccion" id="seleccion"></th>
+                        <th>idPrestarSala</th>
+                        <th>idSala</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>idTiempo_Dia</th>
+                        <th>idUsuario</th>
+                    </tr>
+                </thead>
+                <tbody id="datosPrestarSala">
+                </tbody>
+            </table>
+        </div> 
+
+        <!------------------------------------------------ Formulario Modificar ------------------------------------------------>
+        <div id="formularioModificar" class="formulario">
+            <form id="FormModificar" method="post">
+                <div class="titulo">
+                    <h2>Modificar</h2>       
+                </div>
+                <label>Identificador de Prestamo Sala:</label><br>
+                <input type="text" name="idPrestarSala" id="idPrestarSalaM" placeholder="Buscar..." maxlength="12" required><br>
+
+                <label>idSala:</label><br>
+                <input type="text" name="idSala" id="idSalaM" maxlength="48" required><br>
+
+                <label>Fecha:</label><br>
+                <input type="date" name="fecha" id="fechaM" required><br>
+
+                <label>Hora:</label><br>
+                <input type="time" name="hora" id="horaM" required><br>
+
+                <label>idTiempo_Dia:</label><br>
+                <input type="text" name="idTiempo_Dia" id="idTiempo_DiaM" required><br>
+
+                <label>idUsuario:</label><br>
+                <input type="text" name="idUsuario" id="idUsuarioM" maxlength="48" required><br>
+
+                <input type="submit" value="Aceptar">
+                <input type="button" name="btnCancelar" value="Limpiar" onclick="limpiar('modificar')">
+            </form>
+            <button onclick="Cerrar('modificar')">
+                <img src="assets/x.svg" alt="Cerrar" class="icono-cerrar">
+            </button>
+        </div>
+
+        <!------------------------------------------------ Formulario Agregar ------------------------------------------------>
+        <div id="formularioAgregar" class="formulario hidden">
+            <form id="FormAgregar" method="post">
+                <div class="titulo">
+                    <h2>Registrar Solicitud de Sala</h2>       
+                </div>
+                <label>idPrestarSala:</label><br>
+                <input type="text" name="idPrestarSala" id="idPrestarSalaA" maxlength="12" required><br>
+
+                <label>idSala:</label><br>
+                <input type="text" name="idSala" id="idSalaA" maxlength="48" required><br>
+
+                <label>Fecha:</label><br>
+                <input type="date" name="fecha" id="fechaA" required><br>
+
+                <label>Hora:</label><br>
+                <input type="time" name="hora" id="horaA" required><br>
+
+                <label>idTiempo_Dia:</label><br>
+                <input type="text" name="idTiempo_Dia" id="idTiempo_DiaA" required><br>
+
+                <label>idUsuario:</label><br>
+                <input type="text" name="idUsuario" id="idUsuarioA" maxlength="48" required><br>
+
+                <input type="submit" value="Registrar">
+                <input type="button" name="btnCancelar" value="Limpiar" onclick="limpiar('agregar')">
+            </form>
+            <button onclick="Cerrar('agregar')">
+                <img src="assets/x.svg" alt="Cerrar" class="icono-cerrar">
+            </button>
+        </div>
+
+        <script src="script/Administrador.js"></script>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Registrar Solicitante</title>
+		<link rel="stylesheet" href="estilos/estiloPrincipal.css">
+		<style>
+			.hidden {
+				display: none;
+			}
+		</style>
+		<title>Inicio de Sesión</title>
+	</head>
+	<body>
+		<div class="estiloIndex">
+			<form id="loginForm">
+				<div class="titulo">
+					<h2>Iniciar Sesión</h2>
+				</div>
+
+		        <label for="idLaboratorista">Clave:</label><br>
+		        <input type="text" id="idLaboratorista" name="idLaboratorista" required><br>
+
+		        <label for="contraseña">Contraseña:</label><br>
+		        <input type="password" id="contraseña" name="contraseña" required><br>
+
+		        <input type="submit" value="¡Listo!">
+		        
+		    </form>	
+		    <div id="message" class="message"></div>
+		</div>
+		<script src="script/IniciarSesion.js"></script>
+	</body>
+</html>

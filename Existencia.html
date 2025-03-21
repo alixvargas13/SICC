@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Existencia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos/estiloPrincipal.css">
+</head>
+<body>
+    <div id="overlay"></div>
+	<nav id="mainNav">
+        <a href="Solicitante.html">Solicitante</a>
+        <a href="Existencia.html">Existencia</a>
+        <a href="Prestamos.html">Préstamos</a>
+        <a href="Laboratorista.html">Laboratorista</a>
+        <a href="Administrador.html">Modificar cuenta admin</a>
+        <a href="Sala.html">Préstamo de sala</a>
+        <!--<a href="modificar/ModificarLaboratorista.html">Modificar Cuenta</a>-->
+        <a href="php/logout.php">Salir</a>
+        <style>
+            .hidden {
+                display: none;
+            }
+        </style>
+    </nav>
+    <!--<h3 id="welcomeMessage">Cargando...</h3>-->
+    
+    <div>
+        <div>
+            <h1>Existencia</h1>
+        </div>
+        <div>
+            <input type="button" class="boton-accion" name="btnAgregar" value="Agregar" onclick="Mostrar('agregar')">
+            <input type="button" class="boton-accion" name="btnModificar" value="Modificar" onclick="Mostrar('modificar')">
+            <input type="button" class="boton-accion" name="btnEliminar" value="Eliminar" onclick="Eliminar()">
+        </div>
+        <br>
+        <div>
+            <input type="text" name="txtBuscador" id="txtBuscador" placeholder="Buscar..." oninput="detectarTeclado(event)">
+        </div>
+        <br>
+        <div class="tabla-container">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" name="seleccion" id="seleccion"></th>
+                        <th>Clave</th>
+                        <th>Tipo</th>
+                        <th>Nombre</th>
+                        <th>Cantidad</th>
+                    </tr>
+                </thead>
+                <tbody id="datosExistencia">
+           		</tbody>
+            </table>
+        </div>
+
+        <!------------------------------------------------ Formulario Agregar ------------------------------------------------>
+        <div id="formularioAgregar" class="formulario">
+            <form id="FormAgregar" method="post">
+                <div class="titulo">
+                    <h2>Registrar</h2>
+                </div>
+                <label>Clave:</label><br>
+                <input type="text" name="idExistencia" id="idExistenciaA" maxlength="21" oninput="soloLetrasNumeros(event)" required><br>
+
+                <label>Nombre:</label><br>
+                <input type="text" name="nombre" id="nombreA" maxlength="48" oninput="soloLetras(event)" required><br>
+
+                <label>Cantidad:</label><br>
+                <input type="text" name="cantidad" id="cantidadA" maxlength="3" oninput="soloNumeros(event)"required><br>
+
+                <label>Tipo:</label><br>
+                <select  name="tipo_existencia" id="tipo_existenciaA"></select><br>
+
+                <input type="submit" value="Registrar">
+                <input type="button" name="btnCancelar" value="Limpiar" onclick="limpiar('agregar')"> 
+        
+            </form>
+            <button onclick="Cerrar('agregar')">
+                <img src="assets/x.svg" alt="Cerrar" class="icono-cerrar">
+            </button>
+        </div>
+
+        <!------------------------------------------------ Formulario Modificar ------------------------------------------------>
+        <div id="formularioModificar" class="formulario">
+            <!-- Aquí incluirías tu formulario HTML -->
+            <form id="FormModificar" method="post">
+            <div class="titulo">
+               <h2>Modificar</h2>        
+            </div>
+                <label >Clave:</label><br>
+                <input type="text" name="idExistencia" id="idExistenciaM" placeholder="Buscar..." maxlength="12" oninput="filtrarIdExistencia(event)" required><br>
+
+                <label >Nombre:</label><br>
+                <input type="text" name="nombre" id="nombreM" maxlength="48" oninput="soloLetras(event)" required><br>
+
+                <label>Cantidad:</label><br>
+                <input type="text" name="cantidad" id="cantidadM"  maxlength="3" oninput="soloNumeros(event)" required><br>
+
+                <label>Tipo:</label><br>
+                <select  name="tipo_existencia" id="tipo_existenciaM"></select><br>
+            
+                <input type="submit" value="Aceptar">
+                <input type="button" name="btnCancelar" value="Limpiar" onclick="limpiar('modificar')">
+            </form>
+            <button onclick="Cerrar('modificar')">
+                <img src="assets/x.svg" alt="Cerrar" class="icono-cerrar">
+            </button>
+        </div>
+
+        <script src="script/ExistenciaIndex.js"></script>
+    </div>
+</body>
+</html>
