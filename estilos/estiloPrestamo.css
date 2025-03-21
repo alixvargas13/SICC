@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.table-left, .table-right {
+    width: 45%;
+}
+
+h1 {
+    font-size: 70px;
+    color: #333; /* Cambiar a un color que combine con el esquema de la página */
+    margin-bottom: 50px;
+    
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #f44336; /* Combinar con los botones */
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Fondo alterno para las filas */
+}
+
+tr:hover {
+    background-color: #fddde6; /* Color al pasar el ratón */
+}
